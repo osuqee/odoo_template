@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tablas donde se añaden las cosas para escribir -->
+        <record id="pollita_view_tree" model="ir.ui.view">
+            <field name="name">pollita_view_tree</field>
+            <field name="model">mipollita.pollita</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="raza"/>
+                    <field name="description"/>
+                    <field name="sexo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="huevos_view_tree" model="ir.ui.view">
+            <field name="name">huevos_view_tree</field>
+            <field name="model">mipollita.huevos</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Las acciones de la tabla de Pollas -->
+        <record model="ir.actions.act_window" id="pollita_action" >
+            <field name="name">pollita</field>
+            <field name="res_model">mipollita.pollita</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="huevos_action" >
+            <field name="name">huevos</field>
+            <field name="res_model">mipollita.huevos</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Menu de Polla -->
+        <menuitem name="MIPOLLLITA" id="mipollita_root_menu"/>
+
+        <!-- Para mostrar los menus en odoo -->
+        <menuitem name="pollita" id="pollita_menu" parent="mipollita_root_menu" action="pollita_action"/>
+        <menuitem name="huevos" id="huevos_menu" parent="mipollita_root_menu" action="huevos_action"/>
+    </data>          
+</odoo>
